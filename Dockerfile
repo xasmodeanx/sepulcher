@@ -26,6 +26,11 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
 # ------------------------------------------------------------------------------
+# Prevent warnings about bad dir permissions
+RUN echo >>/root/.bashrc && \
+    echo "chmod 0700 /root/.gnupg" >>/root/.bashrc
+
+# ------------------------------------------------------------------------------
 # Install webstore client binaries
 COPY --from=build /webstore/src/ws_get.exe /webstore/src/ws_post.exe /usr/bin/
 
