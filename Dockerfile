@@ -18,7 +18,7 @@ MAINTAINER Brett Kuskie <fullaxx@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 # ------------------------------------------------------------------------------
-# Install libraries and clean up
+# Install gnupg2,libraries and clean up
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 	  gnupg2 libcurl3-gnutls libgcrypt20 ca-certificates && \
@@ -26,8 +26,8 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
 # ------------------------------------------------------------------------------
-# Install scripts and binaries
-COPY --from=build /src/ws_get.exe /src/ws_post.exe /usr/bin/
+# Install webstore client binaries
+COPY --from=build /webstore/src/ws_get.exe /webstore/src/ws_post.exe /usr/bin/
 
 # ------------------------------------------------------------------------------
 # Add volumes
