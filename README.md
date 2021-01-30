@@ -13,7 +13,7 @@ docker build -t="fullaxx/sepulcher" github.com/Fullaxx/sepulcher
 ```
 
 ## Launch Sepulcher Docker Container
-```bash
+```
 docker run -it \
 -v /srv/docker/alice/gnupg:/root/.gnupg \
 -v /srv/docker/alice/xfer:/root/xfer \
@@ -21,7 +21,7 @@ fullaxx/sepulcher
 ```
 
 ## Generate your GPG identity
-```bash
+```
 # gpg2 --full-gen-key
 Real name: Alice
 Email address: alice@gmail.com
@@ -36,7 +36,7 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 ```
 
 ## Export and Publish your GPG identity
-```bash
+```
 # gpg2 --armor --output alice.asc --export 951D7434D9DD329BC695BD3690B8A2BADF61CAF3
 
 # ws_post.exe -c -v -s -H keys.dspi.org -P 443 -a 4 -f alice.asc
@@ -46,7 +46,7 @@ Token: 258c5a8abc050d9f4a3c60674ea3b9808b2b8c3b6a6195e22f46325670d3cb7d
 ```
 
 ## Download and Import a published identity
-```bash
+```
 # ws_get.exe -s -H keys.dspi.org -P 443 -t 30970b83c47b03cd2c3ea36439bea1d7886a6e538e6a24cd2fa0f929848ee62f -f bob.asc
 
 # gpg2 --import bob.asc
@@ -64,7 +64,7 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 ```
 
 ## Encrypt and Publish a message
-```bash
+```
 # echo "This is a message for Bob" >msg_for_bob.txt
 
 # gpg2 --output msg_for_bob.gpg --encrypt --recipient XbobX msg_for_bob.txt
@@ -75,7 +75,7 @@ Token: 11cf1c5f3155319e86f733c05c041ea578c55ed283d81b21a9a3049cb04d1ad349632e5b3
 ```
 
 ## Retrieve and Decrypt a message
-```bash
+```
 # ws_get.exe -s -H msgs.dspi.org -P 443 -t 11cf1c5f3155319e86f733c05c041ea578c55ed283d81b21a9a3049cb04d1ad349632e5b3e82366071b3af44d060a7093a8364a7dc2aa769cca46f97daa19686 -f msg_for_bob.gpg
 
 # gpg2 --output msg_for_bob.txt --decrypt msg_for_bob.gpg
