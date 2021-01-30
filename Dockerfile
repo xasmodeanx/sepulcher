@@ -4,8 +4,8 @@ FROM ubuntu:focal AS build
 RUN apt-get update && \
 	apt-get install -y build-essential git ca-certificates \
 	  libcurl4-gnutls-dev libgcrypt20-dev && \
-	git clone https://github.com/Fullaxx/webstore.git src && \
-	cd src && \
+	git clone https://github.com/Fullaxx/webstore.git webstore && \
+	cd webstore/src && \
 	./compile_clients.sh
 
 # ------------------------------------------------------------------------------
