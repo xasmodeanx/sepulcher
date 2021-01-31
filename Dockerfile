@@ -28,7 +28,7 @@ RUN apt-get update && \
 # ------------------------------------------------------------------------------
 # Prevent warnings about bad dir permissions
 RUN echo >>/root/.bashrc && \
-    echo "chmod 0700 /root/.gnupg" >>/root/.bashrc
+	echo "chmod 0700 /root/.gnupg" >>/root/.bashrc
 
 # ------------------------------------------------------------------------------
 # Install webstore client binaries
