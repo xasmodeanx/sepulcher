@@ -76,8 +76,8 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 ```
 
 ## Encrypt and Publish a message
-Now that Alice has a public key for Bob, she can encrypt a msg to Bob.
-After she publishes her message, she can send bob the token.
+Now that Alice has a public key for Bob, she can encrypt a msg to Bob. \
+After she publishes her message, she can send Bob the token.
 ```
 # echo "This is a message for Bob" >msg_for_bob.txt
 
