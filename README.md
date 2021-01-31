@@ -36,6 +36,8 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 ```
 
 ## Export and Publish your GPG identity
+Alice will export her public key and publish it to the keyserver. \
+The final token can be given out at her discretion.
 ```
 # gpg2 --armor --output alice.asc --export 951D7434D9DD329BC695BD3690B8A2BADF61CAF3
 
@@ -46,6 +48,8 @@ Token: 258c5a8abc050d9f4a3c60674ea3b9808b2b8c3b6a6195e22f46325670d3cb7d
 ```
 
 ## Download and Import a published identity
+We assume that Bob followed the above example and published his public key. \
+Bob will gave Alice the token: 30970b83c47b03cd2c3ea36439bea1d7886a6e538e6a24cd2fa0f929848ee62f
 ```
 # ws_get.exe -s -H keys.dspi.org -P 443 -t 30970b83c47b03cd2c3ea36439bea1d7886a6e538e6a24cd2fa0f929848ee62f -f bob.asc
 
@@ -64,6 +68,8 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 ```
 
 ## Encrypt and Publish a message
+Now that Alice has a public key for Bob, she can encrypt a msg to Bob.
+After she publishes her message, she can send bob the token.
 ```
 # echo "This is a message for Bob" >msg_for_bob.txt
 
@@ -75,6 +81,7 @@ Token: 11cf1c5f3155319e86f733c05c041ea578c55ed283d81b21a9a3049cb04d1ad349632e5b3
 ```
 
 ## Retrieve and Decrypt a message
+Bob will use the token he got from Alice to retrieve and decrypt the message.
 ```
 # ws_get.exe -s -H msgs.dspi.org -P 443 -t 11cf1c5f3155319e86f733c05c041ea578c55ed283d81b21a9a3049cb04d1ad349632e5b3e82366071b3af44d060a7093a8364a7dc2aa769cca46f97daa19686 -f msg_for_bob.gpg
 
@@ -85,3 +92,11 @@ gpg: encrypted with 4096-bit RSA key, ID 44851B4FAD37B260, created 2021-01-30
 # cat msg_for_bob.txt
 This is a message for Bob
 ```
+
+## More Info
+* [GnuPG User Guides](https://www.gnupg.org/documentation/guides.html)
+* A Practical Guide to GPG: 
+[P1](https://www.linuxbabe.com/security/a-practical-guide-to-gpg-part-1-generate-your-keypair) /
+[P2](https://www.linuxbabe.com/security/a-pratical-gpg-guide-part-2-encrypt-and-decrypt-message) /
+[P3](https://www.linuxbabe.com/security/a-practical-guide-to-gpg-part-3-working-with-public-key) /
+[P4](https://www.linuxbabe.com/security/a-practical-guide-to-gpg-part-4-digital-signature)
