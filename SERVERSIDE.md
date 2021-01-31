@@ -7,7 +7,7 @@ These can be combined into 1 service if you desire.
 
 ## Start KeyStore Instance (for Public Key Transfer)
 For the KeyStore service, we run a generic webstore instance with 3 specific options: \
-REQPERIOD=4 -e REQCOUNT=1 limit connections from any IP address to 1 every 4 seconds. \
+REQPERIOD=4 and REQCOUNT=1 limit connections from any IP address to 1 every 4 seconds. \
 MAXPOSTSIZE=16384 limits any upload to 16384 bytes. This should be large enough for keys. \
 ```bash
 KSIP="51.195.74.99"
@@ -43,7 +43,7 @@ fullaxx/webstore
 
 ## Start MsgStore Instance (for Message Transfer)
 For the MsgStore Instance, we run a generic webstore instance with 4 specific options: \
-REQPERIOD=5 -e REQCOUNT=2 limit connections from any IP address to 2 every 5 seconds. \
+REQPERIOD=5 and REQCOUNT=2 limit connections from any IP address to 2 every 5 seconds. \
 BAR=1 tells the server to DELETE any message that is successfully retrieved. \
 MAXPOSTSIZE=1000000 limits any upload to 1000000 bytes. \
 This options should be tailored for your specific needs.
