@@ -102,6 +102,7 @@ This is a message for Bob
 ```
 
 ## More Info
+* Howto Run [Sepulcher Server-Side Components](https://github.com/Fullaxx/sepulcher/blob/master/SERVERSIDE.md)
 * [GnuPG User Guides](https://www.gnupg.org/documentation/guides.html)
 * A Practical Guide to GPG: 
 [P1](https://www.linuxbabe.com/security/a-practical-guide-to-gpg-part-1-generate-your-keypair) /

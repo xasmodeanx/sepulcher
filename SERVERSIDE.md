@@ -1,6 +1,12 @@
-# WebStore Services to support sepulcher
+# WebStore Services to support Sepulcher
+[Webstore](https://github.com/Fullaxx/webstore) is the data-storage backend for Sepulcher.
+The following describes how to run webstore in different ways.
+One webstore instance will be configured for key transfer and the other will support message distribution.
 
 ## Start KeyStore Instance (for Public Key Transfer)
+For the KeyStore service, we run a generic webstore instance with 3 specific options: \
+REQPERIOD=4 -e REQCOUNT=1 limit connections from any IP address to 1 every 4 seconds. \
+MAXPOSTSIZE=16384 limits any upload to 16384 bytes. This should be large enough for keys. \
 ```bash
 KSIP="51.195.74.99"
 RIP="172.17.0.1"
@@ -34,6 +40,11 @@ fullaxx/webstore
 ```
 
 ## Start MsgStore Instance (for Message Transfer)
+For the MsgStore Instance, we run a generic webstore instance with 4 specific options: \
+REQPERIOD=5 -e REQCOUNT=2 limit connections from any IP address to 2 every 5 seconds. \
+BAR=1 tells the server to DELETE any message that is successfully retrieved. \
+MAXPOSTSIZE=1000000 limits any upload to 1000000 bytes. \
+This options should be tailored for your specific needs.
 ```bash
 MSIP="51.195.74.98"
 RIP="172.17.0.1"
