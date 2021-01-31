@@ -39,7 +39,7 @@ sub   rsa4096 2021-01-30 [E] [expires: 2021-04-30]
 Alice will export her public key and publish it to the keyserver. \
 The final token can be given out at her discretion.
 ```
-# gpg2 -a --output alice.asc --export 951D7434D9DD329BC695BD3690B8A2BADF61CAF3
+# gpg2 -a -o alice.asc --export 951D7434D9DD329BC695BD3690B8A2BADF61CAF3
 
 # ws_post.exe -c -v -s -H keys.dspi.org -P 443 -a 4 -f alice.asc
 Compressing: 3134 bytes
@@ -73,7 +73,7 @@ After she publishes her message, she can send bob the token.
 ```
 # echo "This is a message for Bob" >msg_for_bob.txt
 
-# gpg2 --output msg_for_bob.gpg -r XbobX -s -e msg_for_bob.txt
+# gpg2 -o msg_for_bob.gpg -r XbobX -s -e msg_for_bob.txt
 
 # ws_post.exe -v -s -H msgs.dspi.org -P 443 -a 6 -f msg_for_bob.gpg
 Uploading: 786 bytes
@@ -85,7 +85,7 @@ Bob will use the token he got from Alice to retrieve and decrypt the message.
 ```
 # ws_get.exe -s -H msgs.dspi.org -P 443 -t 11cf1c5f3155319e86f733c05c041ea578c55ed283d81b21a9a3049cb04d1ad349632e5b3e82366071b3af44d060a7093a8364a7dc2aa769cca46f97daa19686 -f msg_for_bob.gpg
 
-# gpg2 --output msg_for_bob.txt -d msg_for_bob.gpg
+# gpg2 -o msg_for_bob.txt -d msg_for_bob.gpg
 gpg: encrypted with 4096-bit RSA key, ID 44851B4FAD37B260, created 2021-01-30
       "XbobX <XbobX@gmail.com>"
 
