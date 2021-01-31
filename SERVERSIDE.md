@@ -8,7 +8,7 @@ These can be combined into 1 service if you desire.
 ## Start KeyStore Instance (for Public Key Transfer)
 For the KeyStore service, we run a generic webstore instance with 3 specific options: \
 REQPERIOD=4 and REQCOUNT=1 limit connections from any IP address to 1 every 4 seconds. \
-MAXPOSTSIZE=16384 limits any upload to 16384 bytes. This should be large enough for keys. \
+MAXPOSTSIZE=16384 limits any upload to 16384 bytes. This should be large enough for keys.
 ```bash
 KSIP="51.195.74.99"
 RIP="172.17.0.1"
