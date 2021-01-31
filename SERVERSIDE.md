@@ -1,7 +1,9 @@
 # WebStore Services to support Sepulcher
 [Webstore](https://github.com/Fullaxx/webstore) is the data-storage backend for Sepulcher.
-The following describes how to run webstore in different ways.
-One webstore instance will be configured for key transfer and the other will support message distribution.
+The following describes how to run webstore in different ways. \
+One webstore instance will be configured for key transfer and the other will support message distribution. \
+The purpose of describing seperate 2 services is to demonstrate various configuration options. \
+These can be combined into 1 service if you desire.
 
 ## Start KeyStore Instance (for Public Key Transfer)
 For the KeyStore service, we run a generic webstore instance with 3 specific options: \
